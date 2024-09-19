@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu > li {
+    margin: 5px 0;
+}
+
+.submenu {
+    display: none; /* Скрываем подменю по умолчанию */
+<!--    list-style-type: none;-->
+    padding-left: 20px;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    text-decoration: none;
+    color: #007BFF;
+    margin: 5px 0px;
+}
+
+.active {
+ font-weight: bold;
+}
+
+.inactive {
+display: block;
+}
+
+.menu-toggle:hover {
+    text-decoration: underline;
+}
+  </style>
+</head>
+<body>
+  {% block body %}
+  {% endblock %}
+<script>
+  document.querySelectorAll('.menu-toggle').forEach(item => {
+  console.log(item)
+    if (item.classList.contains("active")) {
+      const submenu = item.nextElementSibling; // Находим подменю
+       submenu.style.display = 'block';
+    }
+    item.addEventListener('click', event => {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        const submenu = item.nextElementSibling; // Находим подменю
+
+        if (submenu.style.display === 'block') {
+            console.log("hide", submenu)
+            submenu.style.display = 'none'; // Скрываем подменю
+        } else {
+            console.log(submenu)
+            submenu.style.display = 'block'; // Показываем подменю
+        }
+    });
+});
+</script>
+</body>
+</html>

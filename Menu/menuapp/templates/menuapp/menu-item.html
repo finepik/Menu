@@ -1,0 +1,15 @@
+{% load menu_item %}
+<div>
+{% for tree in tree.heirs %}
+        {% if tree.heirs %}
+            <li class='{% if parent_url|add:"/"|add:tree.body.name in request.path %}active menu-toggle{% else %} menu-toggle{% endif %}'>
+                <a href="{{parent_url}}/{{tree.body.name}}" class="menu-toggle">{{tree.body.name}}</a>
+            </li>
+            <ul class="submenu">
+                {% menu_item tree parent_url|add:"/"|add:tree.body.name %}
+            </ul>
+        {% else %}
+            <a href="{{parent_url}}/{{tree.body.name}}" class='{% if parent_url|add:"/"|add:tree.body.name in request.path %}active {% else %}inactive {% endif %}'>{{tree.body.name}}</a>
+        {% endif %}
+{% endfor %}
+    </div>

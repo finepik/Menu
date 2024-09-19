@@ -1,0 +1,13 @@
+{% extends 'menuapp/base-index.html' %}
+
+{% block title%}
+    Menu
+{% endblock %}
+
+{% block body%}
+    <h1>Menu:</h1>
+    {% include "menuapp/menu-item.html" %}
+    <p>
+        {{ tree }}
+    </p>
+{%endblock%}
