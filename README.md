@@ -20,18 +20,18 @@
 1. **Клонируйте репозиторий:**
 
    ```bash
-   git clone (ссылка на репозиторий)
-   cd ваш_репозиторий
+   git clone https://github.com/finepik/Menu.git
+   cd Menu
    ```
 2. **Установите зависимости**
     ```bash
-    cd Menu
     pip install -r requirements.txt
     ```
 3. **Примените миграции:**
-    python manage.py migrate
-   
-5. **Запуск сервера**
+   ```bash
+   python manage.py migrate
+   ```
+4. **Запуск сервера**
     ```bash
     python manage.py runserver
     ```
