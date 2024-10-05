@@ -29,6 +29,7 @@
     ```
 3. **Примените миграции:**
    ```bash
+   cd Menu
    python manage.py migrate
    ```
 4. **Запуск сервера**
